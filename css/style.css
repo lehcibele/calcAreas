@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap');
+
+:root {
+    --fonte-principal: "Jacques Francois", serif;
+    --cor-fundo: #83BFB6;
+    --cor-texto: #FFFFFF;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    box-sizing: border-box;
+}
+
+/* Header - Inicio */
+.header {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 40px;
+    width: 10ch;
+    letter-spacing: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: animaTexto steps(10) 2s forwards;
+    position: relative;
+}
+
+.header-logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 4px;
+    background-color: white;
+    animation: animaCursor 0.5s linear infinite;
+}
+
+@keyframes animaTexto {
+    from {
+        width: 0;
+    }
+    to {
+        width: 10ch;
+    }
+}
+
+@keyframes animaCursor {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Header - Fim */

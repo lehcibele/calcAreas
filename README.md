@@ -1,6 +1,6 @@
 # 📐 Calculadora de Áreas
 
-Projeto web simples para calcular áreas de figuras geométricas planas.
+Projeto para calcular áreas de figuras geométricas planas.
 
 🔗 [Mockup no Figma](https://www.figma.com/design/2rTRyI4rLjQYzSC0Oz6H82/calculadora-de-%C3%A1reas?node-id=0-1&p=f&t=nNiLlmSfCJjbfio9-0)
 
