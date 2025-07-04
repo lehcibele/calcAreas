@@ -205,3 +205,38 @@ main {
 }
 
 /* Main - Fim */
+
+/* Footer - inicio */
+.container-footer {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nome-dev-footer {
+    font-family: var(--fonte-principal);
+    font-size: 20px;
+}
+
+.container-redes-sociais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.container-redes-sociais a {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+}
+
+.container-redes-sociais a:hover {
+    background-color: #FFFFFF;
+}
+
+/* Footer - Fim */
