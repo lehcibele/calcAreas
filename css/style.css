@@ -101,7 +101,7 @@ main {
     background: var(--cor-fundo-container);
     box-shadow: 15px 15px 5px rgba(61, 121, 113, 0.25);
     border-radius: 10px;
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 .form-calculo {
@@ -139,12 +139,14 @@ main {
 }
 
 .container-inputs {
+    box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 66px;
 }
 
 .input-calc {
+    box-sizing: border-box;
     width: 239.16px;
     height: 49.02px;
     background: var(--cor-fundo);
@@ -209,6 +211,7 @@ main {
 /* Footer - inicio */
 .container-footer {
     max-width: 1440px;
+    width: 95%;
     margin: 0 auto;
     height: 100px;
     margin-top: 50px;
@@ -240,3 +243,111 @@ main {
 }
 
 /* Footer - Fim */
+
+/* Responsividade */
+@media (max-width: 1000px) {
+    .input-calc {
+        width: 190px;
+    }
+}
+
+@media (max-width: 830px)  {
+    .container-inputs {
+        flex-direction: column;
+    }
+
+    .input-calc {
+        width: 240px;
+    }
+
+    .container-resultados {
+        gap: 70px;
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        height: 130px;
+        flex-direction: column;
+        padding-top: 20px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+    }
+
+    .header-logo {
+        margin-bottom: 20px;
+    }
+
+    .form-calculo {
+        gap: 40px;
+    }
+
+    .container-inputs {
+        gap: 30px
+    }
+
+    .container-footer {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 660px) {
+    .container-resultados {
+        flex-direction: column;
+    }
+
+    .container-redes-sociais {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        width: 90%;
+    }
+
+    .header-navbar-lista {
+        font-size: 26px;
+    }
+
+    .input-objeto, .btn-calcular {
+        width: 300px;
+    }
+
+    .container-footer {
+        flex-direction: column;
+        justify-content: space-around;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .header-navbar-lista {
+        font-size: 20px;
+    }
+
+    .input-objeto {
+        background-size: 18px;
+    }
+
+    .input-calc {
+        width: 180px;
+    }
+
+    .input-calc::placeholder {
+        font-size: 20px;
+    }
+
+    .input-objeto, .btn-calcular {
+        width: 200px;
+        font-size: 20px;
+    }
+
+    .div-resultato, .img-resultado {
+        width: 230px;
+    }
+
+    .nome-dev-footer {
+        font-size: 18px;
+    }
+}
