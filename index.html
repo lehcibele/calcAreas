@@ -19,7 +19,7 @@
 
         <nav class="header-navbar">
             <ul class="header-navbar-lista">
-                <li class="header-navbar-lista-link"><a href="#">Áreas</a></li>
+                <li class="header-navbar-lista-link"><a href="index.html">Áreas</a></li>
                 <li class="header-navbar-lista-link"><a href="#">Em breve</a></li>
                 <li class="header-navbar-lista-link"><a href="#">Em Breve</a></li>
             </ul>
@@ -27,6 +27,48 @@
 
     </header>
 <!-- Fim - Header -->
+
+<!-- Inicio - Main -->
+<main>
+    <section class="container">
+
+        <form class="form-calculo">
+            <select name="input-objeto" id="input-objeto" class="input-objeto">
+                <option value="">Selecione um Objeto</option>
+                <option value="quadrado">Quadrado</option>
+                <option value="retangulo">Retângulo</option>
+                <option value="triangulo">Triângulo</option>
+                <option value="trapezio">Trapézio</option>
+                <option value="circulo">Círculo</option>
+                <option value="losango">Losango</option>
+                <option value="paralelogramo">Paralelogramo</option>
+                <option value="pentagono">Pentágono Regular</option>
+                <option value="hexagono">Hexágono Regular</option>
+                <option value="setorcircular">Setor Circular</option>
+            </select>
+
+            <div class="container-inputs">
+                <input type="text" class="input-calc" id="input-base" placeholder="Base">
+                <input type="text" class="input-calc" id="input-altura" placeholder="Altura">
+                <input type="text" class="input-calc" id="input-extra" placeholder="Se precisar">
+            </div>
+
+            <button class="btn-calcular" id="btn-calcular" type="submit">Calcular</button>
+        </form>
+
+        <div class="container-resultados">
+            <div class="div-resultato" id="div-resultato">
+                <h2>Resultado:</h2>
+                <h3 class="resultado-calculo" id="resultado-calculo">50 cm</h3>
+            </div>
+
+            <div class="img-resultado" id="img-resultado">
+
+            </div>
+        </div>
+    </section>
+</main>
+<!-- Fim - Main -->
 
 </body>
 </html>
