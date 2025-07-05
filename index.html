@@ -32,7 +32,7 @@
 <main>
     <section class="container">
 
-        <form class="form-calculo">
+        <form class="form-calculo" id="form-calculo">
             <select name="input-objeto" id="input-objeto" class="input-objeto">
                 <option value="">Selecione um Objeto</option>
                 <option value="quadrado">Quadrado</option>
@@ -47,11 +47,15 @@
                 <option value="setorcircular">Setor Circular</option>
             </select>
 
+            <p class="texto-campo-vazio" id="texto-select"></p>
+
             <div class="container-inputs">
                 <input type="text" class="input-calc" id="input-base" placeholder="Base">
                 <input type="text" class="input-calc" id="input-altura" placeholder="Altura">
                 <input type="text" class="input-calc" id="input-extra" placeholder="Se precisar">
             </div>
+
+            <p class="texto-campo-vazio" id="texto-campo-vazio"></p>
 
             <button class="btn-calcular" id="btn-calcular" type="submit">Calcular</button>
         </form>
@@ -59,7 +63,7 @@
         <div class="container-resultados">
             <div class="div-resultato" id="div-resultato">
                 <h2>Resultado:</h2>
-                <h3 class="resultado-calculo" id="resultado-calculo">50 cm</h3>
+                <h3 class="resultado-calculo" id="resultado-calculo"></h3>
             </div>
 
             <div class="img-resultado" id="img-resultado">
@@ -92,6 +96,8 @@
 
 </footer>
 <!-- Fim - Footer -->
+
+<script src="js/index.js"></script>
 
 </body>
 </html>

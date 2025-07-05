@@ -167,6 +167,11 @@ main {
     font-size: 24px;
 }
 
+.texto-campo-vazio {
+    font-family: var(--fonte-principal);
+    font-size: 20px;
+}
+
 .btn-calcular {
     width: 400px;
     height: 50px;
