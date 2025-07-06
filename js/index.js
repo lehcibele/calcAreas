@@ -70,6 +70,7 @@ function verificaObjetoSelecionado(objeto, input1, input2, input3){
         input3.style.display = '';
     } else if(objetoSelecionado === 'circulo') {
         input1.placeholder = 'Raio';
+        input1.style.display = '';
         input2.style.display = 'none';
         input3.style.display = 'none';
     } else if(objetoSelecionado === 'losango') {
@@ -126,15 +127,196 @@ function verificarValorInserido(objeto, valor1, valor2, valor3) {
 
         if(validado) {
             let resulAreaQuadrado = areaQuadrado(valor1);
-            resultadoCalculo.textContent = resulAreaQuadrado;
-            console.log(resulAreaQuadrado);
+            resultadoCalculo.textContent = resulAreaQuadrado.toFixed(2);
         }
 
-    }
+    } else if(objeto === 'retangulo') {
+        if(input1.value.trim() === '' || input2.value.trim() === '') { // verifica se o campo está vázio
+            textoCampoVazio.textContent = 'Insira os números!';
+            validado = false;
+        } else if(isNaN(valor1) || isNaN(valor2)) { // verifica se o valor é um número
+            textoCampoVazio.textContent = 'Os valores inseridos não são números!';
+            validado = false;
+        }
+        else {
+            textoCampoVazio.textContent = '';
+        }
 
+        if(validado) {
+            let resulAreaRetangulo = areaRetangulo(valor1, valor2);
+            resultadoCalculo.textContent = resulAreaRetangulo.toFixed(2);
+        }
+    } else if(objeto === 'triangulo') {
+        if(input1.value.trim() === '' || input2.value.trim() === '') { // verifica se o campo está vázio
+            textoCampoVazio.textContent = 'Insira os números!';
+            validado = false;
+        } else if(isNaN(valor1) || isNaN(valor2)) { // verifica se o valor é um número
+            textoCampoVazio.textContent = 'Os valores inseridos não são números!';
+            validado = false;
+        }
+        else {
+            textoCampoVazio.textContent = '';
+        }
+
+        if(validado) {
+            let resulAreaTriangulo = areaTriangulo(valor1, valor2);
+            resultadoCalculo.textContent = resulAreaTriangulo.toFixed(2);
+        }
+    } else if(objeto === 'trapezio') {
+        if(input1.value.trim() === '' || input2.value.trim() === '' || input3.value.trim() === '') { // verifica se o campo está vázio
+            textoCampoVazio.textContent = 'Insira os números!';
+            validado = false;
+        } else if(isNaN(valor1) || isNaN(valor2) || isNaN(valor3)) { // verifica se o valor é um número
+            textoCampoVazio.textContent = 'Os valores inseridos não são números!';
+            validado = false;
+        }
+        else {
+            textoCampoVazio.textContent = '';
+        }
+
+        if(validado) {
+            let resulAreaTrapezio = areaTrapezio(valor1, valor2, valor3);
+            resultadoCalculo.textContent = resulAreaTrapezio.toFixed(2);
+        }
+    } else if(objeto === 'circulo') {
+        if(input1.value.trim() === '') { // verifica se o campo está vázio
+            textoCampoVazio.textContent = 'Insira o número!';
+            validado = false;
+        } else if(isNaN(valor1)) { // verifica se o valor é um número
+            textoCampoVazio.textContent = 'O valor inserido não é um número!';
+            validado = false;
+        }
+        else {
+            textoCampoVazio.textContent = '';
+        }
+
+        if(validado) {
+            let resulAreaCirculo = areaCirculo(valor1);
+            resultadoCalculo.textContent = resulAreaCirculo.toFixed(2);
+        }
+    } else if(objeto === 'losango') {
+        if(input1.value.trim() === '' || input2.value.trim() === '') { // verifica se o campo está vázio
+            textoCampoVazio.textContent = 'Insira os números!';
+            validado = false;
+        } else if(isNaN(valor1) || isNaN(valor2)) { // verifica se o valor é um número
+            textoCampoVazio.textContent = 'Os valores inseridos não são números!';
+            validado = false;
+        }
+        else {
+            textoCampoVazio.textContent = '';
+        }
+
+        if(validado) {
+            let resulAreaLosango = areaLosango(valor1, valor2);
+            resultadoCalculo.textContent = resulAreaLosango.toFixed(2);
+        }
+    } else if(objeto === 'paralelogramo') {
+        if(input1.value.trim() === '' || input2.value.trim() === '') { // verifica se o campo está vázio
+            textoCampoVazio.textContent = 'Insira os números!';
+            validado = false;
+        } else if(isNaN(valor1) || isNaN(valor2)) { // verifica se o valor é um número
+            textoCampoVazio.textContent = 'Os valores inseridos não são números!';
+            validado = false;
+        }
+        else {
+            textoCampoVazio.textContent = '';
+        }
+
+        if(validado) {
+            let resulAreaParalelogramo = areaParalelogramo(valor1, valor2);
+            resultadoCalculo.textContent = resulAreaParalelogramo.toFixed(2);
+        }
+    } else if(objeto === 'pentagono') {
+        if(input1.value.trim() === '' || input2.value.trim() === '') { // verifica se o campo está vázio
+            textoCampoVazio.textContent = 'Insira os números!';
+            validado = false;
+        } else if(isNaN(valor1) || isNaN(valor2)) { // verifica se o valor é um número
+            textoCampoVazio.textContent = 'Os valores inseridos não são números!';
+            validado = false;
+        }
+        else {
+            textoCampoVazio.textContent = '';
+        }
+
+        if(validado) {
+            let resulAreaPentagono = areaPentagono(valor1, valor2);
+            resultadoCalculo.textContent = resulAreaPentagono.toFixed(2);
+        }
+    } else if(objeto === 'hexagono') {
+        if(input1.value.trim() === '') { // verifica se o campo está vázio
+            textoCampoVazio.textContent = 'Insira um número!';
+            validado = false;
+        } else if(isNaN(valor1)) { // verifica se o valor é um número
+            textoCampoVazio.textContent = 'O valor inserido não é um número!';
+            validado = false;
+        }
+        else {
+            textoCampoVazio.textContent = '';
+        }
+
+        if(validado) {
+            let resulAreaHexagono = areaHexagono(valor1);
+            resultadoCalculo.textContent = resulAreaHexagono.toFixed(2);
+        }
+    } else if(objeto === 'setorcircular') {
+        if(input1.value.trim() === '' || input2.value.trim() === '') { // verifica se o campo está vázio
+            textoCampoVazio.textContent = 'Insira os números!';
+            validado = false;
+        } else if(isNaN(valor1) || isNaN(valor2)) { // verifica se o valor é um número
+            textoCampoVazio.textContent = 'Os valores inseridos não são números!';
+            validado = false;
+        }
+        else {
+            textoCampoVazio.textContent = '';
+        }
+
+        if(validado) {
+            let resulAreaSetorCircula = areaSetorCircula(valor1, valor2);
+            resultadoCalculo.textContent = resulAreaSetorCircula.toFixed(2);
+        }
+    } else {
+        validado = false;
+    }
+ 
     return validado;
 }
 
-function areaQuadrado(valor1) {
-    return Math.pow(valor1, 2);
+function areaQuadrado(lado) {
+    return Math.pow(lado, 2);
+}
+
+function areaRetangulo(base, altura) {
+    return base * altura;
+}
+
+function areaTriangulo(base, altura) {
+    return (base * altura) / 2;
+}
+
+function areaTrapezio(baseMaior, baseMenor, altura) {
+    return ((baseMaior + baseMenor) * altura) / 2
+}
+
+function areaCirculo(raio) {
+    return Math.PI * Math.pow(raio, 2);
+}
+
+function areaLosango(diagonalMaior, diagonamMenor) {
+    return (diagonalMaior * diagonamMenor) / 2;
+}
+
+function areaParalelogramo(base, altura) {
+    return base * altura;
+}
+
+function areaPentagono(lado, apotema) {
+    return (5 * lado * apotema) / 2;
+}
+
+function areaHexagono (lado) {
+    return (3 * Math.pow(lado, 2) * Math.sqrt(3)) / 2
+}
+
+function areaSetorCircula(angulo, raio) {
+    return (angulo / 360) * Math.PI * Math.pow(raio, 2);
 }
