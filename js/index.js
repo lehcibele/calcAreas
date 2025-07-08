@@ -6,6 +6,7 @@ const input3 = document.getElementById('input-extra');
 const textoCampoVazio = document.getElementById('texto-campo-vazio');
 const textoSelect = document.getElementById('texto-select');
 const resultadoCalculo = document.getElementById('resultado-calculo');
+const figura = document.getElementById('figura');
 
 // Evento que detectar quando o select é selecionado
 inputObjeto.addEventListener('change', () => {
@@ -30,8 +31,8 @@ formCalc.addEventListener('submit', (e) => {
         textoSelect.textContent = '';
     }
 
-    // verifica se os campos foram preenchidos e se o valor é um número
-    let verificaValor = verificarValorInserido(objetoSelecionado, valor1, valor2, valor3);
+    // verifica se os campos foram preenchidos e se o valor é um número, se sim calcula a area da figura selecionada
+    let verificaValor = calcArea(objetoSelecionado, valor1, valor2, valor3);
 
     if(validado && verificaValor) {
         console.log('Tudo ok, até agora');
@@ -110,7 +111,7 @@ function verificaObjetoSelecionado(objeto, input1, input2, input3){
 }
 
 // verifica se o valor inserido é válido, se sim, é cálculado a área
-function verificarValorInserido(objeto, valor1, valor2, valor3) {
+function calcArea(objeto, valor1, valor2, valor3) {
     validado = true;
 
     if(objeto === 'quadrado') {
@@ -127,6 +128,7 @@ function verificarValorInserido(objeto, valor1, valor2, valor3) {
 
         if(validado) {
             let resulAreaQuadrado = areaQuadrado(valor1);
+            desenhaQuadrado(valor1);
             resultadoCalculo.textContent = resulAreaQuadrado.toFixed(2);
         }
 
@@ -144,6 +146,7 @@ function verificarValorInserido(objeto, valor1, valor2, valor3) {
 
         if(validado) {
             let resulAreaRetangulo = areaRetangulo(valor1, valor2);
+            desenharRetangulo(valor1, valor2);
             resultadoCalculo.textContent = resulAreaRetangulo.toFixed(2);
         }
     } else if(objeto === 'triangulo') {
@@ -160,6 +163,7 @@ function verificarValorInserido(objeto, valor1, valor2, valor3) {
 
         if(validado) {
             let resulAreaTriangulo = areaTriangulo(valor1, valor2);
+            desenhaTriangulo(valor1, valor2);
             resultadoCalculo.textContent = resulAreaTriangulo.toFixed(2);
         }
     } else if(objeto === 'trapezio') {
@@ -281,16 +285,146 @@ function verificarValorInserido(objeto, valor1, valor2, valor3) {
     return validado;
 }
 
+
 function areaQuadrado(lado) {
     return Math.pow(lado, 2);
+}
+
+function desenhaQuadrado(lado) {
+    // Limpa a figura anterior
+    figura.innerHTML = '';
+
+    const maxWidth = 150;
+    const maxHeight = 150;
+
+    const escalaW = maxWidth / lado;
+    const escalaH = maxHeight / lado;
+    const escala = Math.min(escalaW, escalaH);
+
+    const baseEscalada = lado * escala;
+    const alturaEscalada = lado * escala;
+
+    // Cria o quadrado
+    const quadrado = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    quadrado.setAttribute("x", 0);
+    quadrado.setAttribute("y", 0);
+    quadrado.setAttribute("width", baseEscalada);
+    quadrado.setAttribute("height", alturaEscalada);
+    quadrado.setAttribute("stroke", "white");
+    quadrado.setAttribute("fill", "none");
+    quadrado.setAttribute("stroke-width", "3");
+    figura.appendChild(quadrado);
+
+    // Texto para base (abaixo da figura)
+    const textoLado = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    textoLado.setAttribute("x", 0);
+    textoLado.setAttribute("y", alturaEscalada + 20);
+    textoLado.setAttribute("fill", "white");
+    textoLado.setAttribute("font-size", "18px");
+    textoLado.textContent = `L = ${lado}`;
+    figura.appendChild(textoLado);
 }
 
 function areaRetangulo(base, altura) {
     return base * altura;
 }
 
+function desenharRetangulo(base, altura) {
+    // Limpa a figura anterior
+    figura.innerHTML = '';
+
+    const maxWidth = 150;
+    const maxHeight = 150;
+
+    const escalaW = maxWidth / base;
+    const escalaH = maxHeight / altura;
+    const escala = Math.min(escalaW, escalaH);
+
+    const baseEscalada = base * escala;
+    const alturaEscalada = altura * escala;
+
+    // Cria o retângulo
+    const retangulo = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    retangulo.setAttribute("x", 0);
+    retangulo.setAttribute("y", 0);
+    retangulo.setAttribute("width", baseEscalada);
+    retangulo.setAttribute("height", alturaEscalada);
+    retangulo.setAttribute("stroke", "white");
+    retangulo.setAttribute("fill", "none");
+    retangulo.setAttribute("stroke-width", "3");
+    figura.appendChild(retangulo);
+
+    // Texto para base (abaixo da figura)
+    const textoBase = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    textoBase.setAttribute("x", 0);
+    textoBase.setAttribute("y", alturaEscalada + 20);
+    textoBase.setAttribute("fill", "white");
+    textoBase.setAttribute("font-size", "18px");
+    textoBase.textContent = `B = ${base}`;
+    figura.appendChild(textoBase);
+
+    // Texto para altura (à direita da figura)
+    const textoAltura = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    textoAltura.setAttribute("x", baseEscalada + 20);
+    textoAltura.setAttribute("y", 30);
+    textoAltura.setAttribute("fill", "white");
+    textoAltura.setAttribute("font-size", "18px");
+    textoAltura.textContent = `H = ${altura}`;
+    figura.appendChild(textoAltura);
+
+}
+
 function areaTriangulo(base, altura) {
     return (base * altura) / 2;
+}
+
+function desenhaTriangulo(base, altura){
+    // Limpa a figura anterior
+    figura.innerHTML = '';
+
+    const maxWidth = 150;
+    const maxHeight = 150;
+
+    const escalaW = maxWidth / base;
+    const escalaH = maxHeight / altura;
+    const escala = Math.min(escalaW, escalaH);
+
+    const baseEscalada = base * escala;
+    const alturaEscalada = altura * escala;
+
+    const posX = 10;
+    const posY = 10;
+
+    // Desenha o triângulo (isosceles)
+    const ponto1 = `${posX},${posY + alturaEscalada}`;                       // canto inferior esquerdo
+    const ponto2 = `${posX + baseEscalada},${posY + alturaEscalada}`;       // canto inferior direito
+    const ponto3 = `${posX + baseEscalada / 2},${posY}`;                    // topo (meio da base, em cima)
+
+    const triangulo = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+    triangulo.setAttribute("points", `${ponto1} ${ponto2} ${ponto3}`);
+    triangulo.setAttribute("stroke", "white");
+    triangulo.setAttribute("fill", "none");
+    triangulo.setAttribute("stroke-width", "3");
+    figura.appendChild(triangulo);
+
+    // Texto para base (abaixo da figura)
+    const textoBase = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    textoBase.setAttribute("x", posX + baseEscalada / 2 - 20);
+    textoBase.setAttribute("y", posY + alturaEscalada + 20);
+    textoBase.setAttribute("fill", "white");
+    textoBase.setAttribute("font-size", "18px");
+    textoBase.textContent = `B = ${base}`;
+    figura.appendChild(textoBase);
+
+    // Texto para altura (à direita ou acima, ajustável)
+    const textoAltura = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    textoAltura.setAttribute("x", posX + baseEscalada + 10);
+    textoAltura.setAttribute("y", posY + alturaEscalada / 2);
+    textoAltura.setAttribute("fill", "white");
+    textoAltura.setAttribute("font-size", "18px");
+    textoAltura.textContent = `H = ${altura}`;
+    figura.appendChild(textoAltura);
+
 }
 
 function areaTrapezio(baseMaior, baseMenor, altura) {

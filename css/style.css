@@ -204,6 +204,20 @@ main {
     background-color: var(--cor-fundo);
 }
 
+.img-resultado {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#figura {
+    box-sizing: border-box;
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+}
+
 .div-resultato h2, .div-resultato .resultado-calculo{
     font-family: var(--fonte-principal);
     font-size: 32px;
